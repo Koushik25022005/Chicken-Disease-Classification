@@ -5,14 +5,15 @@ from cnnClassifier import logger
 import json
 import pathlib
 import joblib
-from ensure import ensure_annotations
+from typeguard import typechecked
 from box import ConfigBox
 from pathlib import Path
 from typing import Any
 import base64
+import unittest
 
 
-@ensure_annotations
+@typechecked
 def read_yaml(path_to_yaml: Path) -> ConfigBox:
     """Reads yaml file and returns
     
@@ -40,7 +41,7 @@ def read_yaml(path_to_yaml: Path) -> ConfigBox:
     
     
     
-@ensure_annotations
+@typechecked
 def create_directories(path_to_directories: list, verbose=True):
     """ creates list of directories
     
@@ -55,7 +56,7 @@ def create_directories(path_to_directories: list, verbose=True):
             
             
             
-@ensure_annotations
+@ typechecked
 def save_json(path: Path, data: dict):
     """Saves json data
     
@@ -70,7 +71,7 @@ def save_json(path: Path, data: dict):
     
     
     
-@ensure_annotations
+@typechecked
 def load_bin(path: Path) -> Any:
     """ loads binary file
     
@@ -85,7 +86,7 @@ def load_bin(path: Path) -> Any:
     return data
 
 
-@ensure_annotations
+@typechecked
 def save_bin(data: Any, path: Path):
     """Saves binary filw
     
@@ -97,7 +98,7 @@ def save_bin(data: Any, path: Path):
     joblib.dump(value=data, filename=path)
     logger.info(f"binary file saved at: {path}")
 
-@ensure_annotations
+@typechecked
 def get_size(path: Path) -> Any:
     """get size in kB
     
