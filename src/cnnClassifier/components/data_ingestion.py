@@ -10,10 +10,10 @@ from pathlib import Path
 
 class DataIngestion:
     def __init__(self, config: DataIngestionConfig):
-        self.onfig = config
+        self.config = config
         
     def download_file(self):
-        if not os.ath.exist(self.config_local_data_files):
+        if not os.path.exists(self.config.local_data_files):
             filename, headers = request.urlretrieve(
                 url = self.config.source_URL,
                 filename = self.config.local_data_files
