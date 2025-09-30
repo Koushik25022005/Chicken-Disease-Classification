@@ -7,3 +7,16 @@ class DataIngestionConfig:
     source_URL: str
     local_data_files: Path
     unzip_dir: Path
+    
+    
+@dataclass(frozen=True)
+class PrepareModelConfig:
+    root_dir: Path
+    base_model_path: Path
+    updated_base_model_path: Path
+    params_image_size: list
+    params_include_top: bool
+    params_image_size: int
+    params_learning_rate: float
+    params_classes: int
+    params_weights: str
